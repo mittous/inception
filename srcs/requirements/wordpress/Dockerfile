@@ -12,4 +12,8 @@ RUN mkdir -p /var/www/html/wordpress
 
 RUN wp core download --allow-root --path=/var/www/html/wordpress 
 
-CMD [ "bash" ]
+COPY wp.sh .
+
+RUN chmod +x wp.sh
+
+ENTRYPOINT [ "bash"]

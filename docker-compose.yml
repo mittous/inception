@@ -1,0 +1,48 @@
+version: '3.9'
+
+networks:
+  my_inception:
+
+volumes:
+  my_data_base:
+  my_wordpress_files:
+
+services:
+
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    restart: on-failure
+    ports:
+      - 3306:3306
+    volumes:
+      - my_data_base:/var/lib/mysql
+    networks: 
+      - my_inception
+
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    restart: on-failure
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - my_wordpress_files:/var/www/html/wordpress
+    networks: 
+      - my_inception
+    depends_on:
+      - wordpress
+    
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    restart: on-failure
+    ports:
+      - 9000:9000
+    volumes:
+      - my_wordpress_files:/var/www/html/wordpress
+    networks: 
+      - my_inception
+    depends_on:
+      - mariadb

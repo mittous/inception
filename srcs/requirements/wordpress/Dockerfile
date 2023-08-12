@@ -34,7 +34,7 @@
 
 FROM debian:buster
 
-RUN apt-get update && apt-get install php php-fpm php-mysql wget -y && apt-get install mariadb-server -y 
+RUN apt-get update && apt-get install php php-fpm php-mysql wget -y
 
 RUN wget  https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 

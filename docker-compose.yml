@@ -3,9 +3,18 @@ version: '3.9'
 networks:
   my_inception:
 
-# volumes:
-#   my_data_base:
-#   my_wordpress_files:
+volumes:
+   my_db:
+    driver_opts:
+       type: none
+       o: bind
+       device: /home/imittous/data/my_db
+   wp_files:
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/imittous/data/wp_files
+
 
 services:
 
@@ -14,7 +23,7 @@ services:
     container_name: mariadb
     restart: on-failure
     volumes:
-      - users/imittous/data/my_db:/var/lib/mysql
+      - /home/imittous/data/my_db:/var/lib/mysql
     networks: 
       - my_inception
     env_file:
@@ -27,7 +36,7 @@ services:
     ports:
       - 443:443
     volumes:
-      - users/imittous/data/wp_files:/var/www/html/wordpress
+      - /home/imittous/data/wp_files:/var/www/html/wordpress
     networks: 
       - my_inception
     depends_on:
@@ -41,7 +50,7 @@ services:
     container_name: wordpress
     restart: on-failure
     volumes:
-      - users/imittous/data/wp_files:/var/www/html/wordpress
+      - /home/imittous/data/wp_files:/var/www/html/wordpress
     networks: 
       - my_inception
     depends_on:
@@ -58,4 +67,4 @@ services:
     networks:
       - my_inception
     volumes:
-      - my_data_base:/var/lib/mysql
+      - /home/imittous/data/my_db:/var/lib/mysql

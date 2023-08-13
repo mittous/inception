@@ -3,7 +3,7 @@ all : up
 up : 
 	@mkdir -p /home/imittous/data/my_db
 	@mkdir -p /home/imittous/data/wp_files
-	@docker compose -f ./srcs/docker-compose.yml up
+	@docker compose -f ./srcs/docker-compose.yml up --build
 
 down : 
 	@docker compose -f ./srcs/docker-compose.yml down

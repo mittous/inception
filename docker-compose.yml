@@ -20,7 +20,7 @@ services:
   mariadb:
     build: ./srcs/requirements/mariadb
     container_name: mariadb
-    image: mariadb
+    image: mariadb:imittous
     restart: on-failure
     volumes:
       - my_db:/var/lib/mysql
@@ -31,7 +31,7 @@ services:
   nginx:
     build: ./srcs/requirements/nginx
     container_name: nginx
-    image: nginx
+    image: nginx:imittous
     restart: on-failure
     ports:
       - 443:443
@@ -46,7 +46,7 @@ services:
   wordpress:
     build: ./srcs/requirements/wordpress
     container_name: wordpress
-    image: wordpress
+    image: wordpress:imittous
     restart: on-failure
     volumes:
       - wp_files:/var/www/html/wordpress
@@ -59,7 +59,7 @@ services:
   adminer:
     build: ./srcs/requirements/bonus/adminer
     container_name: adminer
-    image: adminer
+    image: adminer:imittous
     restart: on-failure
     ports:
       - 8080:8080
@@ -70,7 +70,7 @@ services:
   static_website:
     build: ./srcs/requirements/bonus/static_website
     container_name: static_website
-    image: static_website
+    image: static_website:imittous
     restart: on-failure
     ports:
       - 1337:80

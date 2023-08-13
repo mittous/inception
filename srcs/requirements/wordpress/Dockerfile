@@ -14,7 +14,6 @@ COPY wp.sh .
 
 RUN chmod +x wp.sh
 
-RUN wp core download --allow-root --path=/var/www/html/wordpress
 
 EXPOSE 9000
 

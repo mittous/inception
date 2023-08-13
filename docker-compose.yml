@@ -58,7 +58,7 @@ services:
     container_name: adminer
     restart: on-failure
     ports:
-      - 8080:8080
+      - 8081:8081
     networks:
       - my_inception
     volumes:
@@ -68,6 +68,6 @@ services:
     container_name: static_website
     restart: on-failure
     ports:
-      - 1337:80
+      - 80:80
     networks:
       - my_inception

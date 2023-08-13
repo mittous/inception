@@ -14,7 +14,6 @@ COPY wp.sh .
 
 RUN chmod +x wp.sh
 
-
 EXPOSE 9000
 
 ENTRYPOINT ["./wp.sh" ]

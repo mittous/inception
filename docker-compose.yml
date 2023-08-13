@@ -68,3 +68,12 @@ services:
       - my_inception
     volumes:
       - my_db:/var/lib/mysql
+  
+  static_website:
+    build: ./srcs/requirements/bonus/static_website
+    container_name: static_website
+    restart: on-failure
+    ports:
+      - 80:80
+    networks:
+      - my_inception

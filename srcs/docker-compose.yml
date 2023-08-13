@@ -17,7 +17,7 @@ volumes:
 
 services:
   mariadb:
-    build: ./requirements/mariadb
+    build: ./requirements/mariadb/.
     container_name: mariadb
     restart: on-failure
     volumes:
@@ -27,7 +27,7 @@ services:
     env_file:
       - .env
   nginx:
-    build: ./requirements/nginx
+    build: ./requirements/nginx/.
     container_name: nginx
     restart: on-failure
     ports:
@@ -41,7 +41,7 @@ services:
     env_file:
       - .env
   wordpress:
-    build: ./requirements/wordpress
+    build: ./requirements/wordpress/.
     container_name: wordpress
     restart: on-failure
     volumes:
@@ -53,7 +53,7 @@ services:
     env_file:
       - .env
   adminer:
-    build: ./requirements/bonus/adminer
+    build: ./requirements/bonus/adminer/.
     container_name: adminer
     restart: on-failure
     ports:
@@ -63,7 +63,7 @@ services:
     volumes:
       - my_db:/var/lib/mysql
   static_website:
-    build: ./requirements/bonus/static_website
+    build: ./requirements/bonus/static_website/.
     container_name: static_website
     restart: on-failure
     ports:

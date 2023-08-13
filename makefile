@@ -6,10 +6,12 @@ up :
 	@docker compose -f ./srcs/docker-compose.yml up
 
 down : 
-	@docker-compose -f ./srcs/docker-compose.yml down -v
+	@docker compose -f ./srcs/docker-compose.yml down
 	
 status : 
 	@docker ps
 
 clean  : down
-	@docker system prune --all --force --volumes
+	@docker system prune -af
+	@sudo rm -rf /home/imittous/data/my_db
+	@sudo rm -rf /home/imittous/data/wp_files

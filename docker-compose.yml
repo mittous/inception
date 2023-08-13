@@ -4,12 +4,12 @@ networks:
   my_inception:
 
 volumes:
-   my_db:
+  my_db:
     driver_opts:
-       type: none
-       o: bind
-       device: /home/imittous/data/my_db
-   wp_files:
+     type: none
+     o: bind
+     device: /home/imittous/data/my_db
+  wp_files:
     driver_opts:
       type: none
       o: bind
@@ -23,8 +23,8 @@ services:
     container_name: mariadb
     restart: on-failure
     volumes:
-      - /home/imittous/data/my_db:/var/lib/mysql
-    networks: 
+      - my_db:/var/lib/mysql
+    networks:
       - my_inception
     env_file:
       - .env
@@ -36,28 +36,28 @@ services:
     ports:
       - 443:443
     volumes:
-      - /home/imittous/data/wp_files:/var/www/html/wordpress
-    networks: 
+      - wp_files:/var/www/html/wordpress
+    networks:
       - my_inception
     depends_on:
       - wordpress
     env_file:
       - .env
 
-    
+
   wordpress:
     build: ./srcs/requirements/wordpress
     container_name: wordpress
     restart: on-failure
     volumes:
-      - /home/imittous/data/wp_files:/var/www/html/wordpress
-    networks: 
+      - wp_files:/var/www/html/wordpress
+    networks:
       - my_inception
     depends_on:
       - mariadb
     env_file:
-      - .env  
-  
+      - .env
+
   adminer:
     build: ./srcs/requirements/bonus/adminer
     container_name: adminer
@@ -67,4 +67,4 @@ services:
     networks:
       - my_inception
     volumes:
-      - /home/imittous/data/my_db:/var/lib/mysql
+      - my_db:/var/lib/mysql

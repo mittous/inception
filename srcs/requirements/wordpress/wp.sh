@@ -19,4 +19,4 @@ wp user create $MY_USER $MY_EMAIL --role=editor --user_pass=$MY_PASS --allow-roo
 
 mkdir -p /run/php
 
-php-fpm7.3 -F
+php-fpm7.4 -F

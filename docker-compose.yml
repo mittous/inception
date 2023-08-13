@@ -68,6 +68,6 @@ services:
     container_name: static_website
     restart: on-failure
     ports:
-      - 80:80
+      - 1337:80
     networks:
       - my_inception

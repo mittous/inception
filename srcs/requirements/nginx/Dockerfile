@@ -16,6 +16,6 @@ RUN rm /etc/nginx/nginx.conf
 
 COPY nginx.conf /etc/nginx/
 
-EXPOSE 443 80
+EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]

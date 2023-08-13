@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update && apt-get install php php-fpm php-mysql wget -y
 

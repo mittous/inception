@@ -1,6 +1,7 @@
 # Inception: Dockerized Multi-Service Infrastructure
 ![Designer1](https://github.com/mittous/inception/assets/75832537/10af9904-dbe1-470d-813d-3225d711ea52)
 
+## Introduction
 This project codenamed `Inception,` delves into the world of system administration using Docker. I built a multi-service infrastructure within a virtual machine (VM), leveraging Docker containers and custom-built Dockerfiles.
 
 ## Project Goals
